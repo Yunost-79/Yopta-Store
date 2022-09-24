@@ -12,19 +12,10 @@ async function sendRequest(url) {
   }
 }
 
-async function getCategory(filter) {
-  const data = await sendRequest(`/products/category/${filter}`);
-  processData(data);
-  console.log(data);
-}
-
-// getCategory('jewelery');
-
-
-const getAllProducts = async () => {
-  const data = await sendRequest('/products');
-  processData(data);
+const getProducts = filter => {
+  return sendRequest(filter ? `/products/category/${filter}` : '/products');
 };
 
-getAllProducts();
-
+const getProductInfo = id => {
+  return sendRequest("/products/" + id);
+}

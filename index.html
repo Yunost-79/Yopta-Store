@@ -1,96 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./style/style.css" />
-    <script src="./script/api.js"></script>
 
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="body-wrapper">
-      <header>
-        <div class="wrapper">
-          <a href="/index.html" class="logo">
-            <img src="./images/Logo.svg" alt="logo" />
-            <span>Yopta Store</span>
-          </a>
-          <nav class="nav">
-            <ul>
-              <li class="nav-item"><a href="/index.html">Home</a></li>
-              <li class="nav-item"><a href="/pageAbout.html">About</a></li>
-              <!-- //якорь не работает адекватно на id на другой станице -->
-              <li class="nav-item"><a href="/index.html#catalogList">Products</a></li>
-              <li class="nav-item"><a href="#">Basket</a></li>
-              <li class="nav-item"><a href="#">Log in</a></li>
-            </ul>
-          </nav>
-          <nav class="nav-burger">
-            <ul>
-              <li class="nav-item-burger"><a href="/index.html">Home</a></li>
-              <li class="nav-item-burger"><a href="/pageAbout.html">About</a></li>
-              <li class="nav-item-burger"><a href="#catalogList">Products</a></li>
-              <li class="nav-item-burger"><a href="#">Basket</a></li>
-              <li class="nav-item-burger"><a href="#">Log in</a></li>
-            </ul>
-          </nav>
-          <div class="burger">
-            <span class="burger-lines"></span>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style/style.css" />
+  <script src="./script/api.js"></script>
+  <script src="./variables.js"></script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="body-wrapper">
+    <header>
+      <div class="wrapper">
+        <a href="./index.html" class="logo">
+          <img src="./images/Logo.svg" alt="logo" />
+          <span>Yopta Store</span>
+        </a>
+        <nav class="nav">
+          <ul id="header-menu"></ul>
+        </nav>
+        <div class="burger-backdrop" onclick="toggleBurgerMenu()"></div>
+        <nav class="nav-burger">
+          <ul id="header-menu-burger"></ul>
+        </nav>
+        <div class="burger" onclick="toggleBurgerMenu()">
+          <span class="burger-lines"></span>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <main>
-        <div class="container">
-          <div class="main-top">
-            <div class="top-content">
-              <div class="top-title">
-                <h1>Welcome to Yopta Store</h1>
-                <p>The first store created with the support of dementia and degradation</p>
-              </div>
-              <div class="top-image">
-                <img src="./images/ImageTop.png" alt="" />
-              </div>
+    <main>
+      <div class="container">
+        <div class="main-top">
+          <div class="top-content">
+            <div class="top-title">
+              <h1>Welcome to Yopta Store</h1>
+              <p>The first store created with the support of dementia and degradation</p>
+            </div>
+            <div class="top-image">
+              <img src="./images/ImageTop.png" alt="" />
             </div>
           </div>
-          <div class="main-catalog">
-            <div class="catalog-title">
-              <h2 id="catalogList">Yopta Catalog List</h2>
-              <div class="dropdown">
-                <select name="filter" id="filter">
-                  <option value="allCategories">All categories</option>
-                  <option value="electronics">Electronics</option>
-                  <option value="jewelery">Jewelery</option>
-                  <option value="men's clothing">Men's clothing</option>
-                  <option value="women's clothing">Women's clothing</option>
-                </select>
-
-              </div>
-
-
-
+        </div>
+        <div class="main-catalog">
+          <div class="catalog-title">
+            <h2 id="catalogList">Yopta Catalog List</h2>
+            <div class="dropdown">
+              <select name="filter" id="filter">
+                <option value="allCategories">All categories</option>
+                <option value="electronics">Electronics</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="men's clothing">Men's clothing</option>
+                <option value="women's clothing">Women's clothing</option>
+              </select>
             </div>
-            <div class="produts"></div>
           </div>
+          <div class="products"></div>
         </div>
-      </main>
+      </div>
+    </main>
 
-      <footer>
-        <div class="footer">
-          <p>Created with the support of "Boring" Co.</p>
-          <p>© 2022</p>
-        </div>
-      </footer>
+    <footer>
+      <div class="footer">
+        <p>Created with the support of "Boring" Co.</p>
+        <p>© 2022</p>
+      </div>
+    </footer>
 
-      <!-- //============================Scripts============================ -->
-    </div>
+    <!-- //============================Scripts============================ -->
+  </div>
 
-    <script src="./script/burgerMenu.js"></script>
-    <script src="./script/objects.js"></script>
-  </body>
+  <script src="./script/ui.js"></script>
+  <script src="./script/burgerMenu.js"></script>
+  <script src="./script/products.js"></script>
+</body>
+
 </html>

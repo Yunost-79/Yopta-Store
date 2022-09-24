@@ -1,7 +1,7 @@
-async function getProductInfo() {
+async function renderProductInfo() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
-  const data = await sendRequest("/products/" + id);
+  const data = await getProductInfo(id);
 
   document.querySelector(".detail-title").innerHTML = data.title;
   document.querySelector(".detail-rate").innerHTML += data.rating.rate;
@@ -12,8 +12,6 @@ async function getProductInfo() {
 
   const imageItem = document.querySelector(".detail-image-item");
   imageItem.src = data.image;
-  imageItem.innerHTML;
-
 }
 
-getProductInfo();
+renderProductInfo();

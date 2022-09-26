@@ -1,22 +1,27 @@
 const HEADER_MENU_ITEMS = [
   {
     label: "Home",
-    link: "./index.html"
+    link: "./index.html",
+    id: ""
   },
   {
     label: "About",
-    link: "./pageAbout.html"
+    link: "./pageAbout.html",
+    id: ""
   },
   {
     label: "Products",
-    link: "./index.html#catalogList"
+    link: "./index.html#catalogList",
+    id: ""
   },
   {
     label: "Basket",
-    link: ""
+    link: "#",
+    id: ""
   },
   {
     label: "Log in",
-    link: ""
+    link: "#",
+    id: "logIn"
   },
 ];

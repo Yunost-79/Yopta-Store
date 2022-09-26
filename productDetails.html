@@ -1,78 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style/style.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./style/style.css" />
+    <script src="./script/api.js"></script>
+    <script src="./script/variables.js"></script>
 
-  <script src="./script/api.js"></script>
-  <script src="./script/variables.js"></script>
+    <title>Document</title>
+  </head>
 
-  <title>Document</title>
-</head>
-
-<body>
-  <div class="body-wrapper">
-    <header>
-      <div class="wrapper">
-        <a href="./index.html" class="logo">
-          <img src="./images/Logo.svg" alt="logo" />
-          <span>Yopta Store</span>
-        </a>
-        <nav class="nav">
-          <ul id="header-menu"></ul>
-        </nav>
-        <div class="burger-backdrop" onclick="toggleBurgerMenu()"></div>
-        <nav class="nav-burger">
-          <ul id="header-menu-burger"></ul>
-        </nav>
-        <div class="burger" onclick="toggleBurgerMenu()">
-          <span class="burger-lines"></span>
-        </div>
-      </div>
-    </header>
-
-    <main class="detail">
-      <div class="detail-container">
-        <h2 class="detail-title"></h2>
-        <p class="detail-rate"><span>Rate:&#32;</span></p>
-        <div class="detail-main">
-          <div class="detail-image">
-            <img class="detail-image-item" src="" alt="" />
-          </div>
-          <div class="detail-main-content">
-            <p class="detail-category"><span>Category:&#32;</span></p>
-            <p class="detail-price"><span>Price:&#32;</span></p>
-            <p class="detail-description">
-              <span>Description:&#32;</span>
-            </p>
-            <button class="button-buy">Buy Now</button>
-            <p class="detail-count"><span>In Stock:&#32;</span></p>
-          </div>
-        </div>
-        <div class="come-back">
-          <a href="./index.html">&#129144; Come Back</a>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      <div class="footer">
-        <p>Created with the support of "Boring" Co.</p>
-        <p>© 2022</p>
-      </div>
-    </footer>
+  <div class="mask">
+    <div class="loader"></div>
   </div>
-  <!-- //============================Scripts============================ -->
 
-  <script src="./script/burgerMenu.js"></script>
-  <script src="./script/productDetails.js"></script>
-  <script src="./script/ui.js"></script>
-</body>
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="modal-close-lines"></span>
+      <div class="modal-body">
+        <div class="modal-body-content">
+          <form class="val-form" action="" novalidate>
+            <div class="form_group">
+              <input type="text" class="input form-input" name="name" placeholder="Name" />
+            </div>
+            <div class="form_group">
+              <input
+                type="text"
+                class="input form-input"
+                name="last name"
+                placeholder="Last Name"
+              />
+            </div>
+            <div class="form_group">
+              <input
+                type="text"
+                class="input form-input form-input-email"
+                name="email"
+                placeholder="E-mail"
+              />
+            </div>
+            <div class="form_group">
+              <input
+                type="text"
+                class="input form-input form-input-phone"
+                name="phone"
+                placeholder="Phone"
+              />
+            </div>
+            <div class="form_group">
+              <input
+                type="checkbox"
+                class="checkbox_input form-input-checkbox"
+                id="privarcy_check"
+              />
+              <label class="checkbox_label" for="privarcy_check">Accept privarcy policy</label>
+            </div>
+            <div class="form-button">
+              <button class="submit-button" type="submit">Submit form</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <body>
+    <div class="body-wrapper">
+      <header>
+        <div class="wrapper">
+          <a href="./index.html" class="logo">
+            <img src="./images/Logo.svg" alt="logo" />
+            <span>Yopta Store</span>
+          </a>
+          <nav class="nav">
+            <ul id="header-menu"></ul>
+          </nav>
+          <div class="burger-backdrop" onclick="toggleBurgerMenu()"></div>
+          <nav class="nav-burger">
+            <ul id="header-menu-burger"></ul>
+          </nav>
+          <div class="burger" onclick="toggleBurgerMenu()">
+            <span class="burger-lines"></span>
+          </div>
+        </div>
+      </header>
+
+      <main class="detail">
+        <div class="detail-container">
+          <h2 class="detail-title"></h2>
+          <p class="detail-rate"><span>Rate:&#32;</span></p>
+          <div class="detail-main">
+            <div class="detail-image">
+              <img class="detail-image-item" src="" alt="" />
+            </div>
+            <div class="detail-main-content">
+              <p class="detail-category"><span>Category:&#32;</span></p>
+              <p class="detail-price"><span>Price:&#32;</span></p>
+              <p class="detail-description">
+                <span>Description:&#32;</span>
+              </p>
+              <button class="button-buy">Buy Now</button>
+              <p class="detail-count"><span>In Stock:&#32;</span></p>
+            </div>
+          </div>
+          <div class="come-back">
+            <a href="./index.html">&#129144; Come Back</a>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="footer">
+          <p>Created with the support of "Boring" Co.</p>
+          <p>© 2022</p>
+        </div>
+      </footer>
+    </div>
+    <!-- //============================Scripts============================ -->
+    <script src="./script/loader.js"></script>
+    <script src="./script/ui.js"></script>
+    <script src="./script/burgerMenu.js"></script>
+    <script src="./script/modalForm.js"></script>
+    <script src="./script/productDetails.js"></script>
+  </body>
 </html>

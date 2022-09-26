@@ -985,4 +985,8 @@ footer {
   .detail-image-item {
     width: 90%;
   }
+  .button-buy {
+    font-size: 18px;
+    padding: 15px 35px;
+  }
 }

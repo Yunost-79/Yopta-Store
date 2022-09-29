@@ -1,23 +1,23 @@
 // ==========Render Modal Form==========
 
 function renderModalForm() {
-  const modalBlock = document.querySelector(".modal");
+  const modalBlock = document.querySelector('.modal');
 
   const handleRenderElement = (elem) => {
     const element = document.createElement(elem.element);
     if (elem.className?.length) {
       element.classList.add(...elem.className);
     }
-    if (elem.element === "a") {
+    if (elem.element === 'a') {
       element.href = elem.href;
     }
-    if (elem.element === "form") {
-      element.setAttribute("action", elem.action);
+    if (elem.element === 'form') {
+      element.setAttribute('action', elem.action);
     }
 
-    if (elem.element === "input") {
-      element.setAttribute("placeholder", elem.placeholder);
-      element.setAttribute("type", elem.type);
+    if (elem.element === 'input') {
+      element.setAttribute('placeholder', elem.placeholder);
+      element.setAttribute('type', elem.type);
     } else {
       element.textContent = elem.text;
     }
@@ -39,25 +39,28 @@ renderModalForm();
 // ==========Open and close modal form==========
 
 function openModal() {
-  const modalId = document.getElementById("modal");
-  const logIn = document.querySelectorAll('[data-login="sing-in"]');
-  const closeModal = document.querySelector(".modal-close");
+  const modalId = document.getElementById('modal');
+  const closeModal = document.querySelector('.modal-close');
+  const logIn = document.querySelectorAll('.log-in');
+  console.log(logIn);
 
-  logIn.onclick = (e) => {
-    e.preventDefault();
-    modalId.style.display = "block";
-    document.body.classList.add("lock");
-  };
+  logIn.forEach((link) => {
+    link.onclick = (e) => {
+      e.preventDefault();
+      modalId.style.display = 'block';
+      document.body.classList.add('lock');
+    };
+  });
 
   closeModal.onclick = () => {
-    modalId.style.display = "none";
-    document.body.classList.remove("lock");
+    modalId.style.display = 'none';
+    document.body.classList.remove('lock');
   };
 
   window.onclick = (e) => {
     if (e.target === modalId) {
-      modalId.style.display = "none";
-      document.body.classList.remove("lock");
+      modalId.style.display = 'none';
+      document.body.classList.remove('lock');
     }
   };
 }
@@ -66,11 +69,11 @@ openModal();
 
 // ==========Validation Form==========
 function modalValidation() {
-  const form = document.querySelector(".form-group");
-  const formInput = document.querySelectorAll(".form-input");
-  const inputEmail = document.querySelector(".form-input-email");
-  const inputPassword = document.querySelector(".form-input-password");
-  const enterButton = document.querySelector(".enter-button");
+  const form = document.querySelector('.form-group');
+  const formInput = document.querySelectorAll('.form-input');
+  const inputEmail = document.querySelector('.form-input-email');
+  const inputPassword = document.querySelector('.form-input-password');
+  const enterButton = document.querySelector('.enter-button');
 
   // check valid input's e-mail or not
   const validEmail = (email) => {
@@ -80,20 +83,20 @@ function modalValidation() {
   };
   // const emptyInput = [...formInput].filter((input) => input.value === "");
 
-  enterButton.addEventListener("click", function () {
+  enterButton.addEventListener('click', function () {
     formInput.forEach(function (input) {
-      if (input.value === "") {
-        input.classList.add("error");
-        console.log("error");
+      if (input.value === '') {
+        input.classList.add('error');
+        console.log('error');
         return;
       }
 
       if (!validEmail(inputEmail.value)) {
-        console.log("Email is not valid");
-        inputEmail.classList.add("error");
+        console.log('Email is not valid');
+        inputEmail.classList.add('error');
       } else {
-        inputEmail.classList.remove("error");
-        console.log("Email is valid");
+        inputEmail.classList.remove('error');
+        console.log('Email is valid');
       }
     });
   });

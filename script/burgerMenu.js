@@ -2,6 +2,8 @@ const burgerBtn = document.querySelector(".burger");
 const burgerLines = document.querySelector(".burger-lines");
 const burgerNav = document.querySelector(".nav-burger");
 const burgerBackdrop = document.querySelector(".burger-backdrop");
+const logIn = document.querySelectorAll(".log-in");
+
 
 
 
@@ -28,6 +30,8 @@ const toggleBurgerMenu = () => {
     burgerNav.classList.add("shown");
     burgerNav.classList.add("active");
   }
+
+
 
   document.body.classList.toggle("lock");
 };

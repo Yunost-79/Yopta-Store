@@ -301,7 +301,6 @@ header {
 /* ==========Modal Form with Validation========== */
 
 .modal {
-
   display: none;
   position: fixed;
   z-index: 9;
@@ -312,7 +311,6 @@ header {
   overflow: auto;
   background-color: rgba(56, 40, 123, 0.7);
   transition: 1s all;
-  
 }
 
 .modal-content {
@@ -322,8 +320,18 @@ header {
   background-color: #38287b;
   max-width: 600px;
   margin: 0 auto;
+  -webkit-box-shadow: -8px 6px 12px 9px rgba(0, 0, 0, 0.52);
+  box-shadow: -8px 6px 12px 9px rgba(0, 0, 0, 0.52);
 }
 
+@media (max-width: 767px) {
+  .modal-content {
+    max-width: 90%;
+    /* border: 1px solid #faa60f; */
+    -webkit-box-shadow: -8px 6px 12px 9px rgba(0, 0, 0, 0.52);
+    box-shadow: -8px 6px 12px 9px rgba(0, 0, 0, 0.52);
+  }
+}
 
 .modal-body {
   display: flex;
@@ -385,6 +393,7 @@ header {
   font-size: 16px;
   border: none;
   outline: none;
+  transition: 0.3s all;
 }
 
 .input:focus {
@@ -398,7 +407,13 @@ header {
 
 /* Errors */
 
-
+.input.error{
+  border-bottom: 2px solid #d40000;
+}
+.input.error:focus::placeholder {
+  color: #d40000;
+  transition: 0.3s all;
+}
 
 .enter {
   margin-top: 25px;
@@ -420,17 +435,16 @@ header {
   color: #000;
 }
 
-.sing-up-link{
+.sing-up-link {
   margin: 25px 0 75px 0;
   color: #fff;
   text-decoration: none;
   transition: 0.3s all;
-  }
-
-.sing-up-link:hover{
-  color: #faa60f;
 }
 
+.sing-up-link:hover {
+  color: #faa60f;
+}
 
 /* ==========Main========== */
 main {

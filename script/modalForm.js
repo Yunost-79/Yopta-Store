@@ -2,7 +2,7 @@
 
 function renderModalForm() {
   const modalBlockSingIn = document.getElementById("modal-sing-in");
-  // const modalBlockSingUp = document.getElementById("modal-sing-up");
+  const modalBlockSingUp = document.getElementById("modal-sing-up");
 
   const handleRenderElement = (elem) => {
     const element = document.createElement(elem.element);
@@ -10,16 +10,20 @@ function renderModalForm() {
       element.classList.add(...elem.className);
     }
     if (elem.element === "a") {
-      element.href = elem.href;
+      elem?.href ? (element.href = elem.href) : "";
     }
     if (elem.element === "form") {
       element.setAttribute("action", elem.action);
     }
+    if (elem?.id ? elem.element === "div" : "") {
+      element.id = elem.id;
+    }
 
     if (elem.element === "input") {
-      element.setAttribute("placeholder", elem.placeholder);
+      elem?.placeholder ? element.setAttribute("placeholder", elem.placeholder) : "";
+      elem?.id ? (element.id = elem.id) : "";
+      elem?.autocomplete ? element.setAttribute("autocomplete", elem.autocomplete) : "";
       element.setAttribute("type", elem.type);
-      element?.setAttribute("autocomplete", elem.autocomplete);
     } else {
       element.textContent = elem.text;
     }
@@ -32,46 +36,76 @@ function renderModalForm() {
     return element;
   };
 
+  //For modal form to SING IN
   const modalContentSingIn = handleRenderElement(MODAL_STRUCTURE_SING_IN);
   modalBlockSingIn.append(modalContentSingIn);
 
-  // const modalContentSingUp = handleRenderElement(MODAL_STRUCTURE_SING_UP);
-  // modalBlockSingUp.append(modalContentSingUp);
+  //For modal form to SING UP
+
+  const modalContentSingUp = handleRenderElement(MODAL_STRUCTURE_SING_UP);
+  modalBlockSingUp.append(modalContentSingUp);
 }
 
 renderModalForm();
 
 // ==========Open and close modal form to Sing ==========
 
-function openModal() {
-  const modalId = document.getElementById("modal-sing-in");
-  const closeModal = document.querySelector(".modal-close");
+function openModalSingIn() {
+  const modalIdSingIn = document.getElementById("modal-sing-in");
+  const modalIdSingUp = document.getElementById("modal-sing-up");
+  const closeModalSingIn = document.getElementById("close-modal-sing-in");
   const singIn = document.querySelectorAll(".log-in");
-  // const modalIdSingUp = document.getElementById("modal-sing-up");
-  // const singUp = document.querySelector(".sing-up-link");
 
   singIn.forEach((link) => {
     link.onclick = (e) => {
       e.preventDefault();
-      modalId.style.display = "block";
+      modalIdSingIn.style.display = "block";
       document.body.classList.add("lock");
     };
   });
 
-  closeModal.onclick = () => {
-    modalId.style.display = "none";
+  closeModalSingIn.onclick = () => {
+    modalIdSingIn.style.display = "none";
     document.body.classList.remove("lock");
   };
 
-  window.onclick = (e) => {
-    if (e.target === modalId) {
-      modalId.style.display = "none";
+  modalIdSingIn.onclick = (e) => {
+    if (e.target === modalIdSingIn) {
+      modalIdSingIn.style.display = "none";
       document.body.classList.remove("lock");
     }
   };
 }
 
-openModal();
+openModalSingIn();
+
+function openModalSingUp() {
+  const closeModalSingUp = document.getElementById("close-modal-sing-up");
+  const modalIdSingUp = document.getElementById("modal-sing-up");
+  const modalIdSingIn = document.getElementById("modal-sing-in");
+  const singUp = document.querySelector(".sing-up-link");
+
+  singUp.onclick = (e) => {
+    e.preventDefault();
+    modalIdSingUp.style.display = "block";
+    modalIdSingIn.style.display = "none";
+    document.body.classList.add("lock");
+  };
+
+  closeModalSingUp.onclick = () => {
+    modalIdSingUp.style.display = "none";
+    document.body.classList.remove("lock");
+  };
+
+  modalIdSingUp.onclick = (e) => {
+    if (e.target === modalIdSingUp) {
+      modalIdSingUp.style.display = "none";
+      document.body.classList.remove("lock");
+    }
+  };
+}
+
+openModalSingUp();
 
 // ==========Validation Form to Sing in==========
 function modalValidation() {
@@ -106,5 +140,3 @@ function modalValidation() {
 }
 
 modalValidation();
-
-// ==========Open and close modal form to Sing Up==========

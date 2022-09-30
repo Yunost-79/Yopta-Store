@@ -33,6 +33,7 @@ const MODAL_STRUCTURE_SING_IN = {
         {
           element: "div",
           className: ["modal-close"],
+          id: "close-modal-sing-in",
           children: [
             {
               element: "span",
@@ -71,9 +72,10 @@ const MODAL_STRUCTURE_SING_IN = {
                 {
                   element: "input",
                   className: ["input", "form-input", "form-input-email"],
-                  type: "text",
+                  type: "email",
                   name: "email",
                   placeholder: "Enter your E-mail",
+                  autocomplete: "username email",
                 },
 
                 {
@@ -105,7 +107,7 @@ const MODAL_STRUCTURE_SING_IN = {
         {
           element: "a",
           className: ["sing-up-link"],
-          href: "#",
+          href: "#modal-sing-up",
           text: "or Sing up",
         },
       ],
@@ -124,6 +126,8 @@ const MODAL_STRUCTURE_SING_UP = {
         {
           element: "div",
           className: ["modal-close"],
+          id: "close-modal-sing-up",
+
           children: [
             {
               element: "span",
@@ -162,18 +166,50 @@ const MODAL_STRUCTURE_SING_UP = {
                 {
                   element: "input",
                   className: ["input", "form-input", "form-input-email"],
-                  type: "text",
+                  type: "email",
                   name: "email",
                   placeholder: "Enter your E-mail",
+                  autocomplete: "username email",
                 },
 
                 {
                   element: "input",
                   className: ["input", "form-input", "form-input-password"],
+                  id: "first-password-input",
                   type: "password",
                   name: "password",
                   placeholder: "Enter your YoptaPassword",
                   autocomplete: "current-password",
+                },
+
+                {
+                  element: "input",
+                  className: ["input", "form-input", "form-input-password"],
+                  id: "second-password-input",
+                  type: "password",
+                  name: "password",
+                  placeholder: "Enter your YoptaPassword again",
+                  autocomplete: "current-password",
+                },
+
+                {
+                  element: "div",
+                  className: ["form-checkbox"],
+                  children: [
+                    {
+                      element: "input",
+                      className: ["checkbox_input",  "form-input-checkbox"],
+                      id: "checkbox-sing-up",
+                      type: "checkbox",
+                      name: "checkbox",
+                    },
+                    {
+                      element: "label",
+                      className: ["checkbox_label"],
+                      for: "checkbox-sing-up",
+                      text: "Accept privarcy policy",
+                    },
+                  ],
                 },
               ],
             },
@@ -188,7 +224,7 @@ const MODAL_STRUCTURE_SING_UP = {
               element: "button",
               className: ["enter-button"],
               type: "enter",
-              text: "Sing in Yopta Store",
+              text: "Sing up Yopta Store",
             },
           ],
         },
@@ -196,8 +232,8 @@ const MODAL_STRUCTURE_SING_UP = {
         {
           element: "a",
           className: ["sing-up-link"],
-          href: "#",
-          text: "or Sing up",
+          href: "#modal-sing-in",
+          text: "or Sing in if you have YoptaAccount",
         },
       ],
     },

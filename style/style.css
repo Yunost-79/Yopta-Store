@@ -348,11 +348,11 @@ header {
   width: 60px;
   height: 60px;
   margin: 15px 15px 0 auto;
-  transition: 0.3s all;
+  transition: 0.5s all;
   cursor: pointer;
 }
 .modal-close:hover {
-  transform: rotate(225deg);
+  transform: rotate(270deg);
 }
 
 .modal-close .close-line,
@@ -397,7 +397,7 @@ header {
 }
 
 .input:focus {
-  border-bottom: 2px solid #faa60f;
+  border: 2px solid #faa60f;
 }
 
 .input:focus::placeholder {
@@ -405,14 +405,37 @@ header {
   transition: 0.3s all;
 }
 
+.form-checkbox {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkbox_input {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  background-color: #e9e9e9;
+  cursor: pointer;
+}
+
+.checkbox_label {
+  color: #fff;
+  font-size: 18px;
+}
+
 /* Errors */
 
-.input.error{
-  border-bottom: 2px solid #d40000;
-}
-.input.error:focus::placeholder {
+.input.error {
+  border: 2px solid #d40000;
   color: #d40000;
-  transition: 0.3s all;
+}
+.input.error::placeholder {
+  color: #d40000;
+  transition: 0.1s all;
+}
+.input.error:focus {
+  color: #000;
 }
 
 .enter {
@@ -428,22 +451,67 @@ header {
   border-radius: 5px;
   background-color: #faa60f;
   color: #fff;
-  transition: 0.3s all;
+  transition: 0.5s all;
 }
 .enter-button:hover {
   opacity: 0.8;
   color: #000;
 }
 
-.sing-up-link {
+.sing-in-link {
+  position: relative;
   margin: 25px 0 75px 0;
   color: #fff;
   text-decoration: none;
+  font-size: 18px;
   transition: 0.3s all;
+}
+.sing-in-link::before {
+  position: absolute;
+  z-index: 10;
+  top: 23px;
+  left: 0;
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #faa60f;
+  transition: 0.3s all;
+}
+
+.sing-in-link:hover {
+  color: #faa60f;
+}
+
+.sing-in-link:hover::before {
+  width: 100%;
+}
+
+.sing-up-link {
+  position: relative;
+  margin: 25px 0 75px 0;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s all;
+}
+.sing-up-link::before {
+  position: absolute;
+  z-index: 10;
+  top: 23px;
+  left: 0;
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #faa60f;
+  transition: 0.5s all;
 }
 
 .sing-up-link:hover {
   color: #faa60f;
+}
+
+.sing-up-link:hover::before {
+  width: 100%;
 }
 
 /* ==========Main========== */

@@ -84,3 +84,18 @@ function modalValidation() {
 }
 
 modalValidation();
+
+const setIsShowModal = (modalId, isShown) => {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    if (isShown) {
+      modal.classList.add("shown")
+      modal.classList.remove("hidden")
+    } else {
+      modal.classList.remove("shown")
+      setTimeout(() => {
+        modal.classList.add("hidden")
+      }, 300)
+    }
+  }
+};

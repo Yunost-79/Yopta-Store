@@ -12,6 +12,9 @@ function renderModalForm() {
     if (elem.element === "a") {
       elem?.href ? (element.href = elem.href) : "";
     }
+    if (elem?.onclick) {
+      element.setAttribute("onclick", elem.onclick);
+    }
     if (elem.element === "form") {
       element.setAttribute("action", elem.action);
     }
@@ -47,65 +50,6 @@ function renderModalForm() {
 }
 
 renderModalForm();
-
-// ==========Open and close modal form to Sing ==========
-
-function openModalSingIn() {
-  const modalIdSingIn = document.getElementById("modal-sing-in");
-  const modalIdSingUp = document.getElementById("modal-sing-up");
-  const closeModalSingIn = document.getElementById("close-modal-sing-in");
-  const singIn = document.querySelectorAll(".log-in");
-
-  singIn.forEach((link) => {
-    link.onclick = (e) => {
-      e.preventDefault();
-      modalIdSingIn.style.display = "block";
-      document.body.classList.add("lock");
-    };
-  });
-
-  closeModalSingIn.onclick = () => {
-    modalIdSingIn.style.display = "none";
-    document.body.classList.remove("lock");
-  };
-
-  modalIdSingIn.onclick = (e) => {
-    if (e.target === modalIdSingIn) {
-      modalIdSingIn.style.display = "none";
-      document.body.classList.remove("lock");
-    }
-  };
-}
-
-openModalSingIn();
-
-function openModalSingUp() {
-  const closeModalSingUp = document.getElementById("close-modal-sing-up");
-  const modalIdSingUp = document.getElementById("modal-sing-up");
-  const modalIdSingIn = document.getElementById("modal-sing-in");
-  const singUp = document.querySelector(".sing-up-link");
-
-  singUp.onclick = (e) => {
-    e.preventDefault();
-    modalIdSingUp.style.display = "block";
-    modalIdSingIn.style.display = "none";
-    document.body.classList.add("lock");
-  };
-
-  closeModalSingUp.onclick = () => {
-    modalIdSingUp.style.display = "none";
-    document.body.classList.remove("lock");
-  };
-
-  modalIdSingUp.onclick = (e) => {
-    if (e.target === modalIdSingUp) {
-      modalIdSingUp.style.display = "none";
-      document.body.classList.remove("lock");
-    }
-  };
-}
-
-openModalSingUp();
 
 // ==========Validation Form to Sing in==========
 function modalValidation() {

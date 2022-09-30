@@ -17,8 +17,7 @@ const HEADER_MENU_ITEMS = [
   },
   {
     label: "Sing in",
-    link: "#",
-    className: "log-in",
+    onclick: "handleOpenModal('modal-sing-in')"
   },
 ];
 
@@ -34,6 +33,7 @@ const MODAL_STRUCTURE_SING_IN = {
           element: "div",
           className: ["modal-close"],
           id: "close-modal-sing-in",
+          onclick: "handleCloseModal('modal-sing-in')",
           children: [
             {
               element: "span",
@@ -105,9 +105,9 @@ const MODAL_STRUCTURE_SING_IN = {
         },
 
         {
-          element: "a",
+          element: "div",
           className: ["sing-up-link"],
-          href: "#modal-sing-up",
+          onclick: "handleOpenModal('modal-sing-up'); handleCloseModal('modal-sing-in')",
           text: "or Sing up",
         },
       ],
@@ -126,6 +126,7 @@ const MODAL_STRUCTURE_SING_UP = {
         {
           element: "div",
           className: ["modal-close"],
+          onclick: "handleCloseModal('modal-sing-up')",
           id: "close-modal-sing-up",
 
           children: [
@@ -232,7 +233,7 @@ const MODAL_STRUCTURE_SING_UP = {
         {
           element: "a",
           className: ["sing-up-link"],
-          href: "#modal-sing-in",
+          onclick: "handleOpenModal('modal-sing-in'); handleCloseModal('modal-sing-up')",
           text: "or Sing in if you have YoptaAccount",
         },
       ],

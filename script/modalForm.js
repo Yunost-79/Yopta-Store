@@ -88,6 +88,10 @@ function modalValidationSignIn() {
 
       console.log('Email is valid');
     }
+
+    setTimeout(() => {
+      window.location.href = 'http://localhost:5501/index.html';
+    }, 700);
   });
 }
 
@@ -149,6 +153,10 @@ function modalValidationSignUp() {
       checkbox.classList.remove('error');
       checkboxLabel.classList.remove('error');
     }
+
+    setTimeout(() => {
+      window.location.href = 'http://localhost:5501/index.html';
+    }, 700);
   });
 }
 

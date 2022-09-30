@@ -245,6 +245,11 @@ header {
   color: #faa60f;
   font-size: 35px;
 }
+.nav-burger .nav-item-burger div {
+  text-decoration: none;
+  color: #faa60f;
+  font-size: 35px;
+}
 
 @media (min-width: 767px) {
   .nav-burger {
@@ -394,10 +399,6 @@ header {
   padding: 0 65px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
 
 .input {
   margin-top: 20px;
@@ -407,10 +408,30 @@ header {
   border: none;
   outline: none;
   transition: 0.3s all;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+}
+.input-item{
+    display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+
+}
+.input-item::after{
+  content: "";
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: #faa60f;
+  transition: 0.5s all;
 }
 
-.input:focus {
-  border: 2px solid #faa60f;
+.input-item:focus-within::after{
+width: 100%;
 }
 
 .input:focus::placeholder {
@@ -440,18 +461,25 @@ header {
 
 /* Errors */
 
-.input.error {
-  border: 2px solid #d40000;
+.input.error{
   color: #d40000;
+  border-bottom: 3px solid #d40000;
 }
+
+
 
 .input.error::placeholder {
   color: #d40000;
-  transition: 0.1s all;
+
 }
 
 .input.error:focus {
   color: #000;
+
+}
+
+.checkbox_label.error {
+  color: #d40000;
 }
 
 .enter {
@@ -475,7 +503,7 @@ header {
   color: #000;
 }
 
-.sing-in-link {
+.sign-in-link {
   position: relative;
   margin: 25px 0 75px 0;
   color: #fff;
@@ -484,7 +512,7 @@ header {
   transition: 0.3s all;
 }
 
-.sing-in-link::before {
+.sign-in-link::before {
   position: absolute;
   z-index: 10;
   top: 23px;
@@ -496,24 +524,25 @@ header {
   transition: 0.3s all;
 }
 
-.sing-in-link:hover {
+.sign-in-link:hover {
   color: #faa60f;
 }
 
-.sing-in-link:hover::before {
+.sign-in-link:hover::before {
   width: 100%;
 }
 
-.sing-up-link {
+.sign-link {
   position: relative;
   margin: 25px 0 75px 0;
   color: #fff;
   text-decoration: none;
   font-size: 18px;
   transition: 0.3s all;
+  cursor: pointer;
 }
 
-.sing-up-link::before {
+.sign-link::before {
   position: absolute;
   z-index: 10;
   top: 23px;
@@ -525,11 +554,11 @@ header {
   transition: 0.5s all;
 }
 
-.sing-up-link:hover {
+.sign-link:hover {
   color: #faa60f;
 }
 
-.sing-up-link:hover::before {
+.sign-link:hover::before {
   width: 100%;
 }
 
@@ -583,7 +612,8 @@ main {
   line-height: 30px;
 }
 
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+}
 
 .top-image {
   display: flex;

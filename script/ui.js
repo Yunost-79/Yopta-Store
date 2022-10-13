@@ -6,7 +6,7 @@ const renderMenu = () => {
     const menuElem = document.createElement('li');
     menuElem.classList.add('nav-item');
     if (item.onclick) {
-      menuElem.innerHTML = `<div onclick="${item.onclick}">${item.label}</a>`;
+      menuElem.innerHTML = `<div onclick="${item.onclick}">${item.label}</div>`;
     } else {
       menuElem.innerHTML = `<a href="${item.link}"  ${item?.className ? 'class=' + item.className : ''}>${item.label}</a>`;
     }
@@ -15,7 +15,7 @@ const renderMenu = () => {
     const menuElemBurger = document.createElement('li');
     menuElemBurger.classList.add('nav-item-burger');
     if (item.onclick) {
-      menuElemBurger.innerHTML = `<div onclick="${item.onclick}">${item.label}</a>`;
+      menuElemBurger.innerHTML = `<div onclick="${item.onclick}">${item.label}</div>`;
     } else {
       menuElemBurger.innerHTML = `<a href="${item.link}"  ${item?.className ? 'class=' + item.className : ''}>${
         item.label
